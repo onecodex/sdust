@@ -1,0 +1,25 @@
+[package]
+name = "sdust"
+description = "Implementation of symmetric DUST algorithm, with optional CLI"
+version = "0.1.0"
+edition = "2021"
+keywords = ["bio", "dna", "sequence"]
+include = ["src/**/*", "README.md"]
+license = "MIT"
+
+[[bin]]
+name = "sdustmasker"
+doc = false
+required-features = ["cli"]
+path = "src/main.rs"
+
+
+[dependencies]
+clap = { version = "3.0.0", features = ["derive"], optional = true }
+needletail = { version = "0.4.1", optional = true }
+
+[dev-dependencies]
+needletail = "0.4.1"
+
+[features]
+cli = ["clap", "needletail"]
